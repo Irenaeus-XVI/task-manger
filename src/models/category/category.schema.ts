@@ -13,8 +13,10 @@ export class Category {
     @Prop({ type: SchemaTypes.ObjectId, ref: 'User', required: true })
     user: Types.ObjectId;
 
+    @Prop({ type: Boolean, default: false })
+    isDeleted?: boolean;
 
     readonly _id?: mongoose.Types.ObjectId;
 }
 
-export const UserSchema = SchemaFactory.createForClass(Category);
+export const CategorySchema = SchemaFactory.createForClass(Category);

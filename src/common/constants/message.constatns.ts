@@ -15,4 +15,8 @@ export const message = {
         passwordEmpty: 'Please Check Your Email To Change Password!',
     },
 
+    category: {
+        ...generateMessage('Category'),
+    },
+
 };
