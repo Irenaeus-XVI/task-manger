@@ -21,9 +21,6 @@ export class passportStrategy extends PassportStrategy(Strategy, 'user') {
     return {
       _id: payload._id,
       email: payload.email,
-      countryCode: payload.countryCode,
-      phoneNumber: payload.phoneNumber,
-      type: payload.type,
     };
   }
 }

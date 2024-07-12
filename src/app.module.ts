@@ -7,6 +7,7 @@ import configuration from './common/config/envs/index'
 import { UserAppModule } from './modules/user/user.module';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './common/guards/jwt-auth.guard';
+import { CategoryModule } from './modules/category/category.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -21,7 +22,8 @@ import { JwtAuthGuard } from './common/guards/jwt-auth.guard';
         useUnifiedTopology: true,
       }),
     }),
-    UserAppModule 
+    UserAppModule,
+    CategoryModule 
   ],
   controllers: [AppController],
   providers: [
