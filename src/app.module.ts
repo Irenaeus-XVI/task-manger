@@ -16,7 +16,7 @@ import { UserAppModule } from './modules/user/user.module';
       useFactory: (configService: ConfigService) => ({
         uri: configService.get('database').url,
         useNewUrlParser: true,
-        useUnifiedTopology: true, 
+        useUnifiedTopology: true,
       }),
     }),
     UserAppModule

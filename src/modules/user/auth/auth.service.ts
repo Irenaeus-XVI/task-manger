@@ -10,7 +10,7 @@ export class AuthService {
   constructor(
     private jwtService: JwtService,
     private UserService: UserService,
-  ) {}
+  ) { }
 
   private readonly logger = new Logger(AuthService.name);
 
