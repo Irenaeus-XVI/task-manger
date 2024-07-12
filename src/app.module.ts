@@ -5,6 +5,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import configuration from './common/config/envs/index'
 import { UserAppModule } from './modules/user/user.module';
+import { APP_GUARD } from '@nestjs/core';
+import { JwtAuthGuard } from './common/guards/jwt-auth.guard';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -19,9 +21,16 @@ import { UserAppModule } from './modules/user/user.module';
         useUnifiedTopology: true,
       }),
     }),
-    UserAppModule
+    UserAppModule 
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+
+    }
+  ],
 })
 export class AppModule { }
